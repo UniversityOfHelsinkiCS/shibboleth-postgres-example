@@ -40,7 +40,7 @@ const NavBar = () => {
     setOpenLanguageSelect(false)
   }
 
-  if (isLoading || !user) return null
+  if (isLoading) return null
 
   return (
     <AppBar elevation={0} position="relative" sx={styles.appbar}>

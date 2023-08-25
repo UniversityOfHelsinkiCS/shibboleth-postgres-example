@@ -10,6 +10,9 @@ ENV BASE_PATH=$BASE_PATH
 ARG STAGING
 ENV STAGING=$STAGING
 
+ARG E2E
+ENV E2E=$E2E
+
 COPY package* ./
 RUN npm ci --omit-dev --ignore-scripts
 COPY . .

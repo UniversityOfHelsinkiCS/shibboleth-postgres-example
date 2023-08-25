@@ -9,7 +9,9 @@
     "dev": "NODE_ENV=development concurrently \"nodemon --exec node --loader ts-node/esm src/server/index.ts\" \"vite\"",
     "lint": "eslint 'src/**/*.ts'",
     "format": "prettier --write '*.{ts,json,css,md}'",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:setup && npm run test:e2e",
+    "test:setup": "docker compose down && docker compose -f compose.ci.yaml up -d --build",
+    "test:e2e": "cypress run",
     "build": "vite build",
     "prepare": "husky install"
   },
@@ -27,10 +29,12 @@
     "extends": [
       "airbnb",
       "airbnb-typescript",
-      "prettier"
+      "prettier",
+      "plugin:cypress/recommended"
     ],
     "plugins": [
-      "prettier"
+      "prettier",
+      "cypress"
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser",
@@ -70,10 +74,12 @@
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "concurrently": "^8.2.1",
+    "cypress": "^12.17.4",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-cypress": "^2.14.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
