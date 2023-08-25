@@ -8,11 +8,12 @@ import {
 
 import { BASE_PATH } from '../config'
 import App from './App'
+import Counter from './components/Counter'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      {/* <Route index element={<Chat />} /> */}
+      <Route index element={<Counter />} />
     </Route>
   ),
   {

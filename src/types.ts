@@ -6,3 +6,8 @@ export interface User {
   iamGroups: string[]
   isAdmin: boolean
 }
+
+export interface Counter {
+  id: string
+  value: number
+}

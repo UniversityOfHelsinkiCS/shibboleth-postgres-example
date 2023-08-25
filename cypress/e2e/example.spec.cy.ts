@@ -6,6 +6,6 @@ describe('Example', () => {
   })
 
   it('loads the main page', () => {
-    cy.contains('Example App')
+    cy.contains('Esimerkkisovellus')
   })
 })

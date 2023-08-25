@@ -7,6 +7,7 @@ import { inProduction, inStaging } from '../config'
 import logger from './util/logger'
 import router from './routes'
 import { connectToDatabase } from './db/connection'
+import seed from './db/seed'
 
 const app = express()
 
@@ -23,6 +24,7 @@ if (inProduction || inStaging) {
 
 app.listen(PORT, async () => {
   await connectToDatabase()
+  await seed()
 
   logger.info(`Server running on port ${PORT}`)
 })
